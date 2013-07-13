@@ -15,6 +15,8 @@
     <context:component-scan base-package="org.lanxy.web.controller"/>
 
     <mvc:annotation-driven/>
+    
+    <mvc:view-controller path="/" view-name="/index"/>
 
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
         <property name="messageConverters">
@@ -58,6 +60,7 @@
         <property name="prefix" value=""/>
         <property name="suffix" value=".ftl"/>
         <property name="contentType" value="text/html;charset=UTF-8"/>
+        <property name="exposeSpringMacroHelpers" value="true"/>
         <property name="order" value="0"/>
     </bean>
 

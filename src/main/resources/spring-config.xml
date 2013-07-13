@@ -10,10 +10,7 @@
 
     <context:annotation-config/>
 
-
     <context:property-placeholder location="classpath:conf/application.properties"/>
-
-    <context:component-scan base-package="org.lanxy.web.*"/>
 
     <context:component-scan base-package="org.lanxy.web">
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>

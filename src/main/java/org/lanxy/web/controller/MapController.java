@@ -1,20 +1,22 @@
 package org.lanxy.web.controller;
 
+import org.lanxy.web.core.log.BaseLogger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * .
  *
  * @author <a href="mailto:lanxy88@gmail.com">NelsonXu</a>
- * @version V1.0, 13-7-11 下午5:39
+ * @version V1.0, 13-7-13 下午4:01
  */
 @Controller
-public class IndexController {
+@RequestMapping(value = "/map")
+public class MapController extends BaseLogger {
 
-    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    @RequestMapping(value = "/index")
     public String index() {
-        return "index";
+        return "map";
     }
+
 }

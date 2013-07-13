@@ -12,7 +12,7 @@
     
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:spring-config.xml</param-value>
+        <param-value>classpath:/spring-config.xml</param-value>
     </context-param>
 
     <filter>
@@ -58,14 +58,14 @@
 
     <error-page>
         <exception-type>java.lang.Exception</exception-type>
-        <location>/uncaughtException</location>
+        <location>/uncatchEx</location>
     </error-page>
 
     <error-page>
         <error-code>404</error-code>
-        <location>/WEB-INF/views/common/404.ftl</location>
+        <location>/_404</location>
     </error-page>
-    
+
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
