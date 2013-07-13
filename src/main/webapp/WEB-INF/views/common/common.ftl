@@ -7,40 +7,42 @@
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
     <title>${title}</title>
     <script type="text/javascript" language="javascript">
-        var folder = "<@com.rootPath/>";
+        var rootPath = "<@com.rootPath/>";
     </script>
     <#if import??>
         <#list import?split(",") as lib>
-            <#switch lib>
-                <#case "jquery">
-                    <@script name="js/jquery/jquery_1.9.0.js"></@script>
-                    <@script name="js/jquery/jquery-ui.min.js"></@script>
-                    <@script name="js/jquery/jquery.validationEngine-zh_CN.js"></@script>
-                    <@script name="js/jquery/jquery.validationEngine.js"></@script>
-                    <#break />
-                <#case "swf">
-                    <@script name="js/swfobject.js"></@script>
-                    <#break />
-                <#case "portal">
-                	<@script name="js/portal/lib/bootstrap.js"></@script>
-                    <@script name="js/portal/main.js"></@script>
-                    <@style name="css/portal/bootstrap.min.css"></@style>
-                    <@style name="css/portal/main.css"></@style>
-                    <#break/>
-                <#case "fullscreen">
-                    <@style name="css/portal/fullscreen.css"></@style>
-                    <@script name="js/portal/fullscreen.js"></@script>
-                    <#break/>
-                <#--<#case "map">-->
-                <#--<script src="js/map/jsapi.js"></script>-->
-                <#default>
-            </#switch>
+            <#if lib?trim != "">
+                <#switch lib>
+                    <#case "jquery">
+                        <@script name="js/jquery/jquery_1.9.0.js"></@script>
+                        <@script name="js/jquery/jquery-ui.min.js"></@script>
+                        <@script name="js/jquery/jquery.validationEngine-zh_CN.js"></@script>
+                        <@script name="js/jquery/jquery.validationEngine.js"></@script>
+                        <#break />
+                    <#case "swf">
+                        <@script name="js/swfobject.js"></@script>
+                        <#break />
+                    <#case "portal">
+                        <@script name="js/portal/lib/bootstrap.js"></@script>
+                        <@script name="js/portal/main.js"></@script>
+                        <@style name="css/portal/bootstrap.min.css"></@style>
+                        <@style name="css/portal/main.css"></@style>
+                        <#break/>
+                    <#case "fullscreen">
+                        <@style name="css/portal/fullscreen.css"></@style>
+                        <@script name="js/portal/fullscreen.js"></@script>
+                        <#break/>
+                    <#default>
+                        <@style name="css/${lib}.css"></@style>
+                        <@script name="js/${lib}.js"></@script>
+                </#switch>
+            </#if>
+
         </#list>
     </#if>
 </head>
 <body>
     <#nested />
-    
 </body>
 </html>
 </#macro>
