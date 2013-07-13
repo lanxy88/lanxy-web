@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-    <property name="fileName" value="onemap-platform"/>
+    <property name="fileName" value="web-log"/>
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <charset>utf-8</charset>
@@ -8,7 +8,7 @@
         </encoder>
     </appender>
 
-    <logger name="cn.gtmap.onemap.platform" level="debug"/>
+    <logger name="org.lanxy.web" level="debug"/>
     <root level="info">
         <appender-ref ref="CONSOLE"/>
     </root>
