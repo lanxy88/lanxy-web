@@ -22,8 +22,8 @@
                         <@script name="resources/js/swfobject.js"></@script>
                         <#break />
                     <#case "bootstrap">
-                        <@script name="resources/js/vendor/bootstrap.min.js"></@script>
                         <@script name="resources/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></@script>
+                        <@script name="resources/js/vendor/bootstrap.min.js"></@script>
                         <@style name="resources/css/bootstrap.min.css"></@style>
                         <@style name="resources/css/bootstrap-responsive.min.css"></@style>
                         <#break/>
@@ -49,12 +49,7 @@
 
 <#macro main title="">
     <@html title="${title!}" import="jquery,bootstrap,main">
-    <style>
-        body {
-            padding-top: 60px;
-            padding-bottom: 40px;
-        }
-    </style>
+
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="navbar-inner">
             <div class="container">
@@ -64,13 +59,15 @@
                     <span class="icon-bar"></span>
                 </a>
                 <a class="brand" href="#">Project name</a>
+
                 <div class="nav-collapse collapse">
                     <ul class="nav">
                         <li class="active"><a href="#">Home</a></li>
                         <li><a href="#about">About</a></li>
                         <li><a href="#contact">Contact</a></li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b
+                                    class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#">Action</a></li>
                                 <li><a href="#">Another action</a></li>
@@ -87,46 +84,15 @@
                         <input class="span2" type="password" placeholder="Password">
                         <button type="submit" class="btn">Sign in</button>
                     </form>
-                </div><!--/.nav-collapse -->
+                </div>
+                <!--/.nav-collapse -->
             </div>
         </div>
     </div>
 
     <div class="container">
 
-        <!-- Main hero unit for a primary marketing message or call to action -->
-        <div class="hero-unit">
-            <h1>Hello, world!</h1>
-            <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-            <p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
-        </div>
-
-        <!-- Example row of columns -->
-        <div class="row">
-            <div class="span4">
-                <h2>Heading</h2>
-                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                <p><a class="btn" href="#">View details &raquo;</a></p>
-            </div>
-            <div class="span4">
-                <h2>Heading</h2>
-                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                <p><a class="btn" href="#">View details &raquo;</a></p>
-            </div>
-            <div class="span4">
-                <h2>Heading</h2>
-                <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-                <p><a class="btn" href="#">View details &raquo;</a></p>
-            </div>
-        </div>
-
-        <hr>
-
         <#nested />
-
-        <footer>
-            <p>&copy; Company 2012</p>
-        </footer>
 
     </div> <!-- /container -->
 
