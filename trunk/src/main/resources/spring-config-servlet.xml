@@ -10,13 +10,12 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 
-    <!--<context:annotation-config/>-->
 
     <context:component-scan base-package="org.lanxy.web.controller"/>
 
-    <mvc:annotation-driven/>
-    
     <mvc:view-controller path="/" view-name="/index"/>
+    
+    <mvc:resources mapping="/resources/**" location="/resources/"/>
 
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
         <property name="messageConverters">
@@ -25,17 +24,21 @@
                 <bean class="org.springframework.http.converter.StringHttpMessageConverter">
                     <property name="supportedMediaTypes">
                         <list>
+                            <value>text/plain;charset=UTF-8</value>
                             <value>text/html;charset=UTF-8</value>
                         </list>
                     </property>
                 </bean>
-                <ref bean="jsonHttpMessageConverter"/>
+                <bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"/>
             </list>
         </property>
     </bean>
 
+    <!--必须在RequestMappingHandlerAdapter之后-->
+    <mvc:annotation-driven/>
+
     <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
-        <property name="templateLoaderPath"  value="/WEB-INF/views/"/>
+        <property name="templateLoaderPath" value="/WEB-INF/views/"/>
         <property name="defaultEncoding" value="UTF-8"/>
         <property name="freemarkerSettings">
             <props>
@@ -71,6 +74,5 @@
         <property name="order" value="1"/>
     </bean>
 
-    <bean id="jsonHttpMessageConverter" class="org.lanxy.web.core.spring.JSONHttpMessageConverter"/>
 
 </beans>

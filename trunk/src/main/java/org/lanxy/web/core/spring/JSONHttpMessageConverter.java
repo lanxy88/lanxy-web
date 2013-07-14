@@ -8,6 +8,7 @@ import org.springframework.http.HttpInputMessage;
 import org.springframework.http.HttpOutputMessage;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.AbstractHttpMessageConverter;
+import org.springframework.http.converter.GenericHttpMessageConverter;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.http.converter.HttpMessageNotWritableException;
 import org.springframework.util.FileCopyUtils;
@@ -23,7 +24,7 @@ import java.nio.charset.Charset;
  * @author <a href="mailto:lanxy88@gmail.com">NelsonXu</a>
  * @version V1.0, 13-7-12 下午2:47
  */
-public class JSONHttpMessageConverter extends AbstractHttpMessageConverter<Object> {
+public final class JSONHttpMessageConverter extends AbstractHttpMessageConverter<Object>{
 
     public static final Charset DEFAULT_CHARSET = Charset.forName("UTF-8");
 
@@ -34,7 +35,7 @@ public class JSONHttpMessageConverter extends AbstractHttpMessageConverter<Objec
      * @see #setSupportedMediaTypes
      */
     public JSONHttpMessageConverter() {
-        super(new MediaType("application", "json", DEFAULT_CHARSET));
+        super(new MediaType("application", "json", DEFAULT_CHARSET), new MediaType("application", "*+json", DEFAULT_CHARSET));
     }
 
     /**
@@ -45,7 +46,7 @@ public class JSONHttpMessageConverter extends AbstractHttpMessageConverter<Objec
      */
     @Override
     protected boolean supports(Class<?> clazz) {
-        return false;
+        return true;
     }
 
     /**
@@ -78,7 +79,6 @@ public class JSONHttpMessageConverter extends AbstractHttpMessageConverter<Objec
     }
 
     /**
-     *
      * @param obj
      * @param writer
      * @throws IOException
@@ -95,4 +95,5 @@ public class JSONHttpMessageConverter extends AbstractHttpMessageConverter<Objec
             out.close();
         }
     }
+
 }

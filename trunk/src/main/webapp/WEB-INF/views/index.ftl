@@ -1,4 +1,4 @@
 <#---->
-<@com.html title="Lanxy App">
+<@com.main title="Lanxy App">
     <div>Index Page</div>
-</@com.html>
+</@com.main>
