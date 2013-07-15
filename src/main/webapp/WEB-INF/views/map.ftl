@@ -1,4 +1,4 @@
 <#---->
-<@com.html title="Lanxy Map App">
-    <div>Map Page</div>
-</@com.html>
+<@com.swf title="Lanxy Map App">
+
+</@com.swf>
