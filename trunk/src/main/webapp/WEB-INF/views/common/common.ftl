@@ -148,7 +148,7 @@
         attributes.name = "${swfname}";
         attributes.align = "middle";
         swfobject.embedSWF(
-                "<@rootPath/>/flash/${swfname}.swf", "flashContent",
+                "<@rootPath/>/resources/flash/${swfname}.swf", "flashContent",
                 "100%", "100%",
                 swfVersionStr, xiSwfUrlStr,
                 flashvars, params, attributes);
